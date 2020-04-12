@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registratore Voti</title>
+</head>
+<body>
+    <h1>Pagina di registrazione voti per professori</h1>
+    <fieldset>
+        <form action="" method="GET">
+            <p><label>Materia: </label><input type="text" name="subject" placeholder="Nome del corso"></p>
+            <p><label>Data: </label><input type="date" name="sostenuto" id=""></p>
+            <p><label>Matricola: </label><input type="text" name="matricola" required="true" placeholder="Matricola studente"></p>
+            <p><label>Voto: </label><select name="vote" id="vote_selector">
+                <option value="Bocciato">Bocciato</option>
+                <script>
+                    var vote_sel = document.getElementById("vote_selector");
+                    for (i = 18; i < 32; i++){
+                        var new_option = document.createElement("option");
+                        new_option.innerHTML = "<option name=\"" + i + "\">" + i + "</option>"
+                        vote_sel.appendChild(new_option);
+                    }
+                </script>
+            </select></p>
+            <p><input type="submit" value="Register"></p>
+        </form>
+    </fieldset>
+</body>
+</html>

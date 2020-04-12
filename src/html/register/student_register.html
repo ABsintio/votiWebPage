@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Registration Page</title>
+</head>
+<body>
+    <style>
+        fieldset {
+            width: 400px;
+            border: 1px solid #dcdcdc;
+            border-radius: 10px;
+            text-align: left;  
+        }
+        
+        legend { 
+            background-color: #efefef;
+            border: 1px solid #dcdcdc;
+            border-radius: 10px;
+            padding: 10px;
+            text-transform: uppercase;
+        }
+
+        div {
+            border-bottom: 1px solid #efefef;
+            margin: 10px;
+            padding-bottom: 10px;
+            width: 400px;
+        }
+        .title {
+            float: left;
+            width: 88px;
+            text-align: start;
+            padding-right: 70px;
+        }
+
+        div>div {
+            border-bottom: 0px;
+            margin: 0px;
+            padding-bottom: 0px;
+            width: 320.9px;
+            text-align: right;
+        }
+    </style>
+    <h1 id="begin">Registrati come nuovo studente</h1>
+    <script src="../../js/register_html/student_register.js"></script>
+    <fieldset>
+        <legend>Credenziali</legend>
+        <form action="/votiServlet/SuccessfulRegistration" method="POST" id="formreg">
+            <div>
+                <label for="name" class="title">Nome: </label>
+                <input type="text" name="nome" required="true" id="nome">
+            </div>
+            <div>
+                <label for="surname" class="title">Cognome: </label>
+                <input type="text" name="surname" required="true" id="surname"> 
+            </div>
+            <div>
+                <label for="matricola" class="title">Matricola: </label>
+                <input type="text" name="matricola" required="true" id="matricola" oninput="checkMatricola()">
+            </div>
+            <div>
+                <label for="email" class="title">Email: </label>
+                <input type="email" name="email" required="true" id="email">
+            </div>
+            <div>
+                <label for="passwd" class="title">Password: </label>
+                <div>
+                    <input type="password" name="passwd" id="psinput" required="true" oninput="passwdord()">
+                    <br><input type="checkbox" onclick="visible()"> Show Password
+                </div>
+            </div>
+            <div>
+                <label for="confirm passwd" class="title" style="width: 150px; padding-right: 10px;">
+                    Confirm Password: 
+                </label>
+                <div>
+                    <input type="password" name="passwd_conf" id="psinputconf" required="true" oninput="confirm()">
+                    <br><input type="checkbox" onclick="visible2()"> Show Password
+                </div>
+            </div> 
+            <div>
+                <a href="../login/student_login.html">Oppure fai il login.</a><br>
+                <a href="../../../index.html">Torna alla home page</a>
+            </div>
+            <div class="submit">
+                <input type="submit" value="Register">
+            </div>
+        </form>
+    </fieldset>
+</body>
+</html>
