@@ -31,6 +31,13 @@
         <servlet-class>loginStudentServlet</servlet-class>
     </servlet>
 
+    <!-- Servlet per la home page degli studenti -->
+    <servlet>
+        <servlet-name>StudentHomePage</servlet-name>
+        <description>Servlet per la home page degli studenti</description>
+        <servlet-class>studMainPageServlet</servlet-class>
+    </servlet>
+
     <servlet-mapping>
         <servlet-name>LoginProfServlet</servlet-name>
         <url-pattern>/ProfHomePage</url-pattern>
@@ -45,4 +52,9 @@
         <servlet-name>LoginStudentServlet</servlet-name>
         <url-pattern>/StudentLoginPage</url-pattern>
     </servlet-mapping> 
+
+    <servlet-mapping>
+        <servlet-name>StudentHomePage</servlet-name>
+        <url-pattern>/StudentHomePage</url-pattern>
+    </servlet-mapping>
 </web-app>

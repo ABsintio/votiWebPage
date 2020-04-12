@@ -64,7 +64,13 @@ public class loginStudentServlet extends HttpServlet {
 
                 response.addCookie(new Cookie("matricola", matricola));
 
-                
+                /**
+                 * TODO:
+                 * 1. Nella redirection inserire anche la matricola dello studente
+                 *    nell'URL della pagina.
+                 */
+
+                 response.sendRedirect("/votiServlet/StudentHomePage?matricola=" + matricola);
 
             } else {
                 response.sendRedirect("/votiServlet/StudentLoginPage?info=password");

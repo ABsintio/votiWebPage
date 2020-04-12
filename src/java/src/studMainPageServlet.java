@@ -25,7 +25,7 @@ public class studMainPageServlet extends HttpServlet {
     
     @Override
     @SuppressWarnings("unchecked")
-    protected void doPost(HttpServletRequest request, HttpServletResponse response) 
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) 
     throws IOException, ServletException {
 
         Cookie matricola = request.getCookies()[0];
@@ -55,8 +55,12 @@ public class studMainPageServlet extends HttpServlet {
             "<title>Home page</title>\n" +
             "</head>\n" +
             "<body>\n" +
+            "<link ref=\"stylesheet\" href=\"/votiServlet/src/css/home/stud_home.css\" type=\"text/css\">" +
             "<h1>Dear " + nome + ", welcome to your home page</h1>\n" +
-            "<>"  
+            "<h2>Informazioni personali</h2>\n" +
+            "<p><label><strong>Nome: </strong></label>" + nome + "</p>\n" +
+            "<p><label><strong>Cognome: </strong></label>" + cognome + "</p>\n" +
+            "<p><label><strong>Email: </strong></label>" + email + "</p>\n"
         );
 
     }
