@@ -32,6 +32,10 @@ public class JSONWriter {
             case PROFESSOR_LAST_ACCESS:
                 this.writeLastAccess(key, values.get(0));
                 break;
+
+            case STUDENT_VOTE_WRITE:
+                this.writeStudentVote(key, values);
+                break;
         
             default:
                 break;
@@ -106,9 +110,46 @@ public class JSONWriter {
 
             file.write(this.jsonObject.toJSONString());
             file.flush();
+            file.close();
 
         } catch (IOException io) {
             io.printStackTrace();
+        }
+
+    }
+
+    /**
+     * 
+     * @param key
+     * @param values
+     * Il json dei voti degli studenti avrà entry di questo tipo
+     * {
+     *      "materia" : {
+     *          "Docente" : ...,
+     *          "Data" : ...,
+     *          "Voto" : ...
+     *      }
+     * }
+     */
+    @SuppressWarnings("unchecked")
+    private void writeStudentVote(String key, ArrayList<String> values){
+
+        // Creiamo il dizionario interno
+        JSONObject innerJsonObject = new JSONObject();
+        innerJsonObject.put("Docente", values.get(0));
+        innerJsonObject.put("Data", values.get(1));
+        innerJsonObject.put("Voto", values.get(2));
+
+        this.jsonObject.put(key, innerJsonObject);
+
+        try (FileWriter stream = new FileWriter(this.file)){
+            
+            stream.write(this.jsonObject.toJSONString());
+            stream.flush();
+            stream.close();
+            
+        } catch (IOException e) {
+            e.printStackTrace();
         }
 
     }

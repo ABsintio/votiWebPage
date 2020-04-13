@@ -6,10 +6,16 @@
     <title>Registratore Voti</title>
 </head>
 <body>
+    <style>
+        .in {
+            width: 240px;
+        }
+    </style>
     <h1>Pagina di registrazione voti per studenti</h1>
     <fieldset>
-        <form action="" method="GET">
-            <p><label>Materia: </label><input type="text" name="subject" placeholder="Nome del corso"></p>
+        <form action="/votiServlet/VoteRegistration" method="GET">
+            <p><label>Docente: </label><input type="text" name="docente" placeholder="Nome del professore di cattedra" class="in"></p>
+            <p><label>Materia: </label><input type="text" name="subject" placeholder="Nome del corso" class="in"></p>
             <p><label>Data: </label><input type="date" name="sostenuto" id=""></p>
             <p><label>Voto: </label><select name="vote" id="vote_selector">
                 <script>

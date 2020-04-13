@@ -38,6 +38,13 @@
         <servlet-class>studMainPageServlet</servlet-class>
     </servlet>
 
+    <!-- Servlet per la registrazione dei voti degli studenti -->
+    <servlet>
+        <servlet-name>StudentRegisterVote</servlet-name>
+        <description>Servlet per la registrazione dei voti degli studenti</description>
+        <servlet-class>studRegisterVoteServlet</servlet-class>
+    </servlet>
+
     <servlet-mapping>
         <servlet-name>LoginProfServlet</servlet-name>
         <url-pattern>/ProfHomePage</url-pattern>
@@ -56,5 +63,10 @@
     <servlet-mapping>
         <servlet-name>StudentHomePage</servlet-name>
         <url-pattern>/StudentHomePage</url-pattern>
+    </servlet-mapping>
+    
+    <servlet-mapping>
+        <servlet-name>StudentRegisterVote</servlet-name>
+        <url-pattern>/VoteRegistration</url-pattern>
     </servlet-mapping>
 </web-app>

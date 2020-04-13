@@ -62,15 +62,10 @@ public class loginStudentServlet extends HttpServlet {
                     values
                 );
 
-                response.addCookie(new Cookie("matricola", matricola));
+                HttpSession session = request.getSession(true);
+                session.setAttribute("matricola", matricola);
 
-                /**
-                 * TODO:
-                 * 1. Nella redirection inserire anche la matricola dello studente
-                 *    nell'URL della pagina.
-                 */
-
-                 response.sendRedirect("/votiServlet/StudentHomePage?matricola=" + matricola);
+                response.sendRedirect("/votiServlet/StudentHomePage");
 
             } else {
                 response.sendRedirect("/votiServlet/StudentLoginPage?info=password");
@@ -90,7 +85,18 @@ public class loginStudentServlet extends HttpServlet {
         response.setContentType("text/html");
         PrintWriter out = response.getWriter();
 
-        String username = cookies == null ? "" : cookies[cookies.length - 1].getValue();
+        Cookie cookie_username = null;
+        if (cookies != null){
+            for (Cookie c: cookies){
+                if (c.getName().equals("matricola")){
+                    cookie_username = c;
+                    break;
+                }
+            }
+        }
+
+        String username = cookie_username == null ? "" : cookie_username.getValue();
+
         String info = request.getParameter("info");
 
         String htmlString = new String();

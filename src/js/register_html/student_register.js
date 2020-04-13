@@ -46,11 +46,11 @@ function passwdord() {
 
 function checkMatricola(){
     var matr = document.getElementById("matricola");
-    var numbers = /^[0-9]+$/;
+    var numbers = /^[0-9]{7}$/;
 
-    if (matr.value.match(numbers)) {
+    if (matr.value.match(numbers)){
         matr.setCustomValidity('');
     } else {
-        matr.setCustomValidity('La matricola è una stringa numerica');
+        matr.setCustomValidity('La matricola non contiene lettere e deve essere di 7 caratteri');
     }
 }
